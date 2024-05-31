@@ -1,0 +1,3 @@
+E:\BaiduNetdiskDownload\GPT-SoVITS-beta0306fix2\runtime\python.exe E:\BaiduNetdiskDownload\GPT-SoVITS-beta0306fix2\tools\asr\fasterwhisper_asr.py -i E:\BaiduNetdiskDownload\GPT-SoVITS-beta0306fix2\output\slicer_opt\test -o output/asr_opt -s small -l auto
+
+# 需要下载small模型。如果命令行不会跳转至自动下载的话可能需要通过GUI下载
