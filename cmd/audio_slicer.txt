@@ -1,0 +1,4 @@
+E:\BaiduNetdiskDownload\GPT-SoVITS-beta0306fix2\runtime\python.exe E:\BaiduNetdiskDownload\GPT-SoVITS-beta0306fix2\tools\slice_audio.py E:/BaiduNetdiskDownload/GPT-SoVITS-beta0306fix2/input/batman/batman.wav E:/BaiduNetdiskDownload/GPT-SoVITS-beta0306fix2/output/slicer_opt/test -34 4000 300 10 500 0.9 0.25 0 1
+
+# 需要新建一个slicer_opt文件夹E:/BaiduNetdiskDownload/GPT-SoVITS-beta0306fix2/output/slicer_opt
+和input文件夹E:/BaiduNetdiskDownload/GPT-SoVITS-beta0306fix2/input
