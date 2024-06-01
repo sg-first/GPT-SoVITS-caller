@@ -320,14 +320,12 @@ def open1Bb(batch_size,total_epoch,exp_name,if_dpo,if_save_latest,if_save_every_
         with open(tmp_config_path, "w") as f:f.write(yaml.dump(data, default_flow_style=False))
         # cmd = '"%s" GPT_SoVITS/s1_train.py --config_file "%s" --train_semantic_path "%s/6-name2semantic.tsv" --train_phoneme_path "%s/2-name2text.txt" --output_dir "%s/logs_s1"'%(python_exec,tmp_config_path,s1_dir,s1_dir,s1_dir)
         cmd = '"%s" GPT_SoVITS/s1_train.py --config_file "%s" '%(python_exec,tmp_config_path)
-        yield "GPT训练开始：%s"%cmd,{"__type__":"update","visible":False},{"__type__":"update","visible":True}
         print(cmd)
         p_train_GPT = Popen(cmd, shell=True)
         p_train_GPT.wait()
         p_train_GPT=None
-        yield "GPT训练完成",{"__type__":"update","visible":True},{"__type__":"update","visible":False}
-    else:
-        yield "已有正在进行的GPT训练任务，需先终止才能开启下一次任务",{"__type__":"update","visible":False},{"__type__":"update","visible":True}
+        return "GPT训练完成",{"__type__":"update","visible":True},{"__type__":"update","visible":False}
+
 
 def close1Bb():
     global p_train_GPT
