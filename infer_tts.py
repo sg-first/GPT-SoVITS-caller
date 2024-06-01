@@ -1,6 +1,8 @@
 import inference_webui_duplicate
 import wave
 
+
+
 def save_audio_to_wav(sampling_rate, audio_data, output_path):
     # 创建一个 WAV 文件
     with wave.open(output_path, 'wb') as wf:
@@ -14,6 +16,11 @@ def save_audio_to_wav(sampling_rate, audio_data, output_path):
 
 
 if __name__ == "__main__":
+    # 指定模型位置
+    inference_webui_duplicate.change_gpt_weights('GPT_weights/test-e15.ckpt')
+    inference_webui_duplicate.change_sovits_weights('SoVITS_weights/test_e8_s368.pth')
+
+
     # Example of how to call the function with parameters
     generator = inference_webui_duplicate.get_tts_wav(
         how_to_cut='Cut per 50 characters',
