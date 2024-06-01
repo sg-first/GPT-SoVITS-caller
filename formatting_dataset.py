@@ -1,6 +1,5 @@
 import webui_duplicate
 
-
 def main():
     inp_text = "E:\\BaiduNetdiskDownload\\GPT-SoVITS-beta0306fix2\\output\\asr_opt\\test.list"  # 必须是这种文件路径，双反斜杠的
     inp_wav_dir = "E:\\BaiduNetdiskDownload\\GPT-SoVITS-beta0306fix2\\output\\slicer_opt\\test"
@@ -26,7 +25,6 @@ def main():
         print(status[0])  # Print the progress message
         # Optionally, handle the dictionaries if needed
         # update_visibility(status[1], status[2])
-
 
 if __name__ == "__main__":
     main()
