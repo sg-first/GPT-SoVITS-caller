@@ -1,13 +1,3 @@
-import os
-import sys
-
-# 设置工作目录为脚本所在目录
-script_dir = os.path.dirname(os.path.abspath(__file__))
-os.chdir(script_dir)
-
-# 确保脚本所在目录在 sys.path 中
-sys.path.append(script_dir)
-
 import webui_duplicate
 
 
