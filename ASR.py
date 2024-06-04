@@ -11,3 +11,6 @@ if __name__ == "__main__":
     )
 
     print(str(result))
+
+    result = webui_duplicate.close_asr()
+    print(result)
