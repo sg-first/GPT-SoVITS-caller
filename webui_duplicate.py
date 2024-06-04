@@ -556,7 +556,6 @@ def open1abc(inp_text,inp_wav_dir,exp_name,gpu_numbers1a,gpu_numbers1Ba,gpu_numb
                     print(cmd)
                     p = Popen(cmd, shell=True)
                     ps1abc.append(p)
-                yield "进度：1a-ing", {"__type__": "update", "visible": False}, {"__type__": "update", "visible": True}
                 for p in ps1abc:p.wait()
 
                 opt = []
@@ -568,7 +567,6 @@ def open1abc(inp_text,inp_wav_dir,exp_name,gpu_numbers1a,gpu_numbers1Ba,gpu_numb
                 with open(path_text, "w",encoding="utf8") as f:
                     f.write("\n".join(opt) + "\n")
 
-            yield "进度：1a-done", {"__type__": "update", "visible": False}, {"__type__": "update", "visible": True}
             ps1abc=[]
             #############################1b
             config={
@@ -593,9 +591,7 @@ def open1abc(inp_text,inp_wav_dir,exp_name,gpu_numbers1a,gpu_numbers1Ba,gpu_numb
                 print(cmd)
                 p = Popen(cmd, shell=True)
                 ps1abc.append(p)
-            yield "进度：1a-done, 1b-ing", {"__type__": "update", "visible": False}, {"__type__": "update", "visible": True}
             for p in ps1abc:p.wait()
-            yield "进度：1a1b-done", {"__type__": "update", "visible": False}, {"__type__": "update", "visible": True}
             ps1abc=[]
             #############################1c
             path_semantic = "%s/6-name2semantic.tsv" % opt_dir
@@ -622,7 +618,6 @@ def open1abc(inp_text,inp_wav_dir,exp_name,gpu_numbers1a,gpu_numbers1Ba,gpu_numb
                     print(cmd)
                     p = Popen(cmd, shell=True)
                     ps1abc.append(p)
-                yield "进度：1a1b-done, 1cing", {"__type__": "update", "visible": False}, {"__type__": "update", "visible": True}
                 for p in ps1abc:p.wait()
 
                 opt = ["item_name\tsemantic_audio"]
@@ -633,15 +628,14 @@ def open1abc(inp_text,inp_wav_dir,exp_name,gpu_numbers1a,gpu_numbers1Ba,gpu_numb
                     os.remove(semantic_path)
                 with open(path_semantic, "w",encoding="utf8") as f:
                     f.write("\n".join(opt) + "\n")
-                yield "进度：all-done", {"__type__": "update", "visible": False}, {"__type__": "update", "visible": True}
             ps1abc = []
-            yield "一键三连进程结束", {"__type__": "update", "visible": True}, {"__type__": "update", "visible": False}
+            return "一键三连进程结束", {"__type__": "update", "visible": True}, {"__type__": "update", "visible": False}
         except:
             traceback.print_exc()
             close1abc()
-            yield "一键三连中途报错", {"__type__": "update", "visible": True}, {"__type__": "update", "visible": False}
+            return "一键三连中途报错", {"__type__": "update", "visible": True}, {"__type__": "update", "visible": False}
     else:
-        yield "已有正在进行的一键三连任务，需先终止才能开启下一次任务", {"__type__": "update", "visible": False}, {"__type__": "update", "visible": True}
+        return "已有正在进行的一键三连任务，需先终止才能开启下一次任务", {"__type__": "update", "visible": False}, {"__type__": "update", "visible": True}
 
 def close1abc():
     global ps1abc
