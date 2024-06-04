@@ -351,7 +351,7 @@ def close_slice():
             except:
                 traceback.print_exc()
         ps_slice=[]
-    yield "已终止所有切割进程", {"__type__": "update", "visible": True}, {"__type__": "update", "visible": False}
+    return "已终止所有切割进程", {"__type__": "update", "visible": True}, {"__type__": "update", "visible": False}
 
 ps1a=[]
 def open1a(inp_text,inp_wav_dir,exp_name,gpu_numbers,bert_pretrained_dir):

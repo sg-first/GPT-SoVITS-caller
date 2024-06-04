@@ -16,3 +16,6 @@ if __name__ == "__main__":
     )
 
     print(str(result))
+
+    result = webui_duplicate.close_slice()
+    print(result)
