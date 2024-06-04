@@ -11,7 +11,7 @@
 import webui_duplicate
 
 
-def oneclick_formatting(inp_text,inp_wav_dir,exp_name,gpu_numbers1a,gpu_numbers1Ba,gpu_numbers1c,bert_pretrained_dir,
+def formatting_dataset(inp_text,inp_wav_dir,exp_name,gpu_numbers1a,gpu_numbers1Ba,gpu_numbers1c,bert_pretrained_dir,
                         ssl_pretrained_dir,pretrained_s2G_path):
     # inp_text = "E:\\BaiduNetdiskDownload\\GPT-SoVITS-beta0306fix2\\output\\asr_opt\\slicer_opt.list"  # 必须是这种文件路径，双反斜杠的
     # inp_wav_dir = "E:\\BaiduNetdiskDownload\\GPT-SoVITS-beta0306fix2\\output\\slicer_opt"
@@ -42,7 +42,7 @@ def oneclick_formatting(inp_text,inp_wav_dir,exp_name,gpu_numbers1a,gpu_numbers1
 
 
 if __name__ == "__main__":
-    oneclick_formatting("E:\\BaiduNetdiskDownload\\GPT-SoVITS-beta0306fix2\\output\\asr_opt\\slicer_opt.list",
+    formatting_dataset("E:\\BaiduNetdiskDownload\\GPT-SoVITS-beta0306fix2\\output\\asr_opt\\slicer_opt.list",
                         "E:\\BaiduNetdiskDownload\\GPT-SoVITS-beta0306fix2\\output\\slicer_opt",
                         "test",
                         "0",
