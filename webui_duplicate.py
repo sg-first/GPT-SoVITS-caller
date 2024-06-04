@@ -195,25 +195,17 @@ def change_tts_inference(if_tts,bert_path,cnhubert_base_path,gpu_number,gpt_path
 
 from tools.asr.config import asr_dict
 def open_asr(asr_inp_dir, asr_opt_dir, asr_model, asr_model_size, asr_lang):
-    global p_asr
-    if(p_asr==None):
-        asr_inp_dir=my_utils.clean_path(asr_inp_dir)
-        cmd = f'"{python_exec}" tools/asr/{asr_dict[asr_model]["path"]}'
-        cmd += f' -i "{asr_inp_dir}"'
-        cmd += f' -o "{asr_opt_dir}"'
-        cmd += f' -s {asr_model_size}'
-        cmd += f' -l {asr_lang}'
-        cmd += " -p %s"%("float16"if is_half==True else "float32")
-
-        yield "ASR任务开启：%s"%cmd,{"__type__":"update","visible":False},{"__type__":"update","visible":True}
-        print(cmd)
-        p_asr = Popen(cmd, shell=True)
-        p_asr.wait()
-        p_asr=None
-        yield f"ASR任务完成, 查看终端进行下一步",{"__type__":"update","visible":True},{"__type__":"update","visible":False}
-    else:
-        yield "已有正在进行的ASR任务，需先终止才能开启下一次任务",{"__type__":"update","visible":False},{"__type__":"update","visible":True}
-        # return None
+    asr_inp_dir=my_utils.clean_path(asr_inp_dir)
+    cmd = f'"{python_exec}" tools/asr/{asr_dict[asr_model]["path"]}'
+    cmd += f' -i "{asr_inp_dir}"'
+    cmd += f' -o "{asr_opt_dir}"'
+    cmd += f' -s {asr_model_size}'
+    cmd += f' -l {asr_lang}'
+    cmd += " -p %s"%("float16"if is_half==True else "float32")
+    print(cmd)
+    p_asr = Popen(cmd, shell=True)
+    p_asr.wait()
+    return f"ASR任务完成, 查看终端进行下一步",{"__type__":"update","visible":True},{"__type__":"update","visible":False}
 
 def close_asr():
     global p_asr
