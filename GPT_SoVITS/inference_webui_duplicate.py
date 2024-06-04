@@ -194,7 +194,7 @@ def change_gpt_weights(gpt_path):
     with open("./gweight.txt", "w", encoding="utf-8") as f: f.write(gpt_path)
 
 
-change_gpt_weights(gpt_path)
+# change_gpt_weights(gpt_path)
 
 
 def get_spepc(hps, filename):
