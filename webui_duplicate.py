@@ -222,21 +222,15 @@ def close_asr():
         p_asr=None
     return "已终止ASR进程",{"__type__":"update","visible":True},{"__type__":"update","visible":False}
 def open_denoise(denoise_inp_dir, denoise_opt_dir):
-    global p_denoise
-    if(p_denoise==None):
-        denoise_inp_dir=my_utils.clean_path(denoise_inp_dir)
-        denoise_opt_dir=my_utils.clean_path(denoise_opt_dir)
-        cmd = '"%s" tools/cmd-denoise.py -i "%s" -o "%s" -p %s'%(python_exec,denoise_inp_dir,denoise_opt_dir,"float16"if is_half==True else "float32")
+    denoise_inp_dir=my_utils.clean_path(denoise_inp_dir)
+    denoise_opt_dir=my_utils.clean_path(denoise_opt_dir)
+    cmd = '"%s" tools/cmd-denoise.py -i "%s" -o "%s" -p %s'%(python_exec,denoise_inp_dir,denoise_opt_dir,"float16"if is_half==True else "float32")
 
-        yield "语音降噪任务开启：%s"%cmd,{"__type__":"update","visible":False},{"__type__":"update","visible":True}
-        print(cmd)
-        p_denoise = Popen(cmd, shell=True)
-        p_denoise.wait()
-        p_denoise=None
-        yield f"语音降噪任务完成, 查看终端进行下一步",{"__type__":"update","visible":True},{"__type__":"update","visible":False}
-    else:
-        yield "已有正在进行的语音降噪任务，需先终止才能开启下一次任务",{"__type__":"update","visible":False},{"__type__":"update","visible":True}
-        # return None
+    print(cmd)
+    p_denoise = Popen(cmd, shell=True)
+    p_denoise.wait()
+    p_denoise=None
+    return f"语音降噪任务完成, 查看终端进行下一步",{"__type__":"update","visible":True},{"__type__":"update","visible":False}
 
 def close_denoise():
     global p_denoise
