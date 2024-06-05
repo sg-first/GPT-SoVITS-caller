@@ -284,7 +284,7 @@ def close1Ba():
     return "已终止SoVITS训练",{"__type__":"update","visible":True},{"__type__":"update","visible":False}
 
 p_train_GPT=None
-def open1Bb(batch_size,total_epoch,exp_name,if_dpo,if_save_latest,if_save_every_weights,save_every_epoch,gpu_numbers,pretrained_s1):
+def open1Bb(batch_size,total_epoch,exp_name,if_dpo,if_save_latest,if_save_every_weights,save_every_epoch,gpu_numbers,pretrained_s1, GPT_weight_root):
     global p_train_GPT
     if(p_train_GPT==None):
         with open("GPT_SoVITS/configs/s1longer.yaml")as f:

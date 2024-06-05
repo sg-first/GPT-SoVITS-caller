@@ -1,6 +1,6 @@
 import webui_duplicate
 
-def train_gpt(exp_name, gpu_numbers):
+def train_gpt(exp_name, gpu_numbers, GPT_weight_root):
     result = webui_duplicate.open1Bb(
         batch_size=2,
         total_epoch=15,
@@ -10,7 +10,8 @@ def train_gpt(exp_name, gpu_numbers):
         if_save_every_weights=True,
         save_every_epoch=15,
         gpu_numbers=gpu_numbers,
-        pretrained_s1="GPT_SoVITS/pretrained_models/s1bert25hz-2kh-longer-epoch=68e-step=50232.ckpt"
+        pretrained_s1="GPT_SoVITS/pretrained_models/s1bert25hz-2kh-longer-epoch=68e-step=50232.ckpt",
+        GPT_weight_root = GPT_weight_root
     )
     print(str(result))
 
@@ -20,6 +21,7 @@ def train_gpt(exp_name, gpu_numbers):
 
 if __name__ == "__main__":
     # Example of how to call the function with parameters
-    exp_name = 'hello'
+    exp_name = 'batman'
     gpu_numbers = '0'
-    train_gpt(exp_name, gpu_numbers)
+    GPT_weight_root = 'C:\\Users\\Bruce Wayne\\Desktop\\storage\\batman'
+    train_gpt(exp_name, gpu_numbers, GPT_weight_root)
