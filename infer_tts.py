@@ -1,6 +1,8 @@
 import inference_webui_duplicate
 import wave
+import sys
 
+sys.path.append("./GPT_SoVITS")
 
 
 def save_audio_to_wav(sampling_rate, audio_data, output_path):
