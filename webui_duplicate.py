@@ -203,7 +203,7 @@ def open_asr(asr_inp_dir, asr_opt_dir, asr_model, asr_model_size, asr_lang):
         cmd += f' -o "{asr_opt_dir}"'
         cmd += f' -s {asr_model_size}'
         cmd += f' -l {asr_lang}'
-        cmd += " -p %s" % ("float16" if is_half == True else "float32")
+        cmd += " -p %s" % "float32"
 
         print(cmd)
         p_asr = Popen(cmd, shell=True)
