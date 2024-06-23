@@ -1,4 +1,4 @@
-# AIhuman-invoke-GPT-SoVTSs
+# GPT-SoVITS-caller
 
 #### 介绍
 * GPT-SoVITS整合包下载地址：https://github.com/RVC-Boss/GPT-SoVITS/blob/main/docs/cn/README.md
